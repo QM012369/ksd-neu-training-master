@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title></title>
+<script type="text/javascript" src="js/angular.js"></script>
+<script type="text/javascript">
+    angular.module("myApp",[]).controller("myCtrl",function($scope){
+        $scope.list=[];
+        $scope.add = function(){
+           var i = {
+               name:$scope.name,
+               age:$scope.age,
+               sex:$scope.sex,
+           };
+           $scope.list.push(i);
+       };
+    });
+</script>
+<body>
+<center>
+<div ng-app="myApp" ng-controller="myCtrl">
+<table border="1px soild #000">
+    <thead>
+    <th>姓名</th>
+    <th>密码</th>
+    <th>年龄</th>
+    </thead>
+    <tr ng-repeat=" x in list">
+        <td>{{x.name}}</td>
+        <td>{{x.age}}</td>
+        <td>{{x.sex}}</td>
+    </tr>
+      </table>
+姓名:<input type="text" ng-model="name"><br/><br />
+密码:<input type="text" ng-model="age"><br/><br />
+年龄:<input type="text" ng-model="sex" /><br /><br />
+    <button ng-click="add()">添加</button>
+</div>
+</center>
+</body>
+</html>
